@@ -16,7 +16,7 @@ app.get("/",(req,res)=>{
 })
 
 app.get('/backup', (req, res) => {
-    backup()
+    backup(res)
 })
 
 app.listen(port || process.env.PORT, () => {
@@ -29,8 +29,10 @@ function backup() {
 	/* execute(`PGPASSWORD="${DBPASSWORD}" pg_dump -U ${DBUSERNAME} -d ${DBNAME} -h ${DBHOST} > LNE-database-backup-${currentDate}.sql`) */
 	execute(`pg_dump -U qsshyzhiglxylw -h ec2-52-21-136-176.compute-1.amazonaws.com -d d9hq8njskmgc15 > db_dump.sql`)
 	.then(async () => {
+		res.send("yes")
 		console.log("Finito");
 	}).catch(err => {
+		res.send("no")
 		console.log("error",err);
 	})
 }
