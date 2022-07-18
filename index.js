@@ -11,6 +11,10 @@ const DBNAME="d9hq8njskmgc15"
 const DBHOST="ec2-52-21-136-176.compute-1.amazonaws.com"
 const DBPORT='5432'
 
+app.get("/",(req,res)=>{
+	res.send("hello")
+})
+
 app.get('/backup', (req, res) => {
     backup()
 })
