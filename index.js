@@ -19,7 +19,7 @@ app.get('/backup', (req, res) => {
     backup()
 })
 
-app.listen(port, () => {
+app.listen(port || process.env.PORT, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
