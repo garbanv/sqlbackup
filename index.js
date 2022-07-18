@@ -23,7 +23,7 @@ app.listen(port || process.env.PORT, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-function backup() {
+function backup(res) {
 	const date = new Date();
 	const currentDate = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}.${date.getHours()}.${date.getMinutes()}`;
 	/* execute(`PGPASSWORD="${DBPASSWORD}" pg_dump -U ${DBUSERNAME} -d ${DBNAME} -h ${DBHOST} > LNE-database-backup-${currentDate}.sql`) */
